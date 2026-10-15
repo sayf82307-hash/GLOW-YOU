@@ -2,44 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8f7ff">
   <title>Glow & You — Skin Studio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="top">
-    <a class="brand" href="#home">✦ Glow <span>&</span> You</a>
-    <div class="tag">SKIN STUDIO 2.0</div>
-  </header>
-  <main id="home">
-    <section class="hero">
-      <div>
-        <div class="eyebrow">YOUR PERSONAL SKINCARE STUDIO</div>
-        <h1>Meet your skin.<br><em>Find your glow.</em></h1>
-        <p>A thoughtful skincare journey, made for everyone. Explore products and routines.</p>
+<header class="top">
+  <a class="brand" href="#home">✦ Glow <span>&</span> You</a>
+  <div class="tag">SKIN STUDIO 2.0 · FOR EVERYONE</div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">YOUR PERSONAL SKINCARE STUDIO</div>
+      <h1>Meet your skin.<br><em>Find your glow.</em></h1>
+      <p>A thoughtful skincare journey, made for everyone. Explore concerns, understand your skin profile, and discover a routine you can actually follow.</p>
+      <button class="primary" id="begin">Start my skin journey →</button>
+      <p class="micro">Free · No account · Photo optional · No photos uploaded</p>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="orbit orbit-one"></div>
+      <div class="orbit orbit-two"></div>
+      <div class="glowball">✧</div>
+      <div class="floating">SKIN • SCIENCE • YOU</div>
+    </div>
+  </section>
+
+  <section class="shell" id="studio">
+    <div class="progress">
+      <div class="eyebrow" id="stepLabel">STEP 1 OF 6</div>
+      <div class="track"><div id="bar"></div></div>
+    </div>
+
+    <!-- Step 01: Photo -->
+    <section class="stage" data-step="0">
+      <div class="eyebrow">01 / PHOTO</div>
+      <h2>Start with a selfie — or skip</h2>
+      <p>Take a photo or choose one from your device. Your image stays in your browser and is only previewed; this version does <strong>not</strong> perform AI image analysis.</p>
+      <div class="photo-area">
+        <img id="preview" alt="Your selected selfie preview" hidden>
+        <div id="placeholder">
+          <span class="camera-icon">◎</span>
+          <p>Your photo preview appears here</p>
+        </div>
+      </div>
+      <div class="actions">
+        <label class="upload">📷 Take photo<input id="camera" type="file" accept="image/*" capture="user" hidden></label>
+        <label class="upload">↑ Upload photo<input id="upload" type="file" accept="image/*" hidden></label>
+        <button class="ghost" id="skip">Skip photo →</button>
+      </div>
+      <p class="micro" id="photoMessage" role="status"></p>
+      <button class="primary" id="photoNext">Continue →</button>
+    </section>
+
+    <!-- Step 02: Concerns -->
+    <section class="stage" data-step="1" hidden>
+      <div class="eyebrow">02 / CONCERNS</div>
+      <h2>What would you like help with?</h2>
+      <p>Choose what you've noticed. These are <strong>self-reported concerns</strong>, not findings from a photo.</p>
+      <div class="choices" id="concerns">
+        <label><input type="checkbox" value="dryness"> Dryness or tightness</label>
+        <label><input type="checkbox" value="breakouts"> Breakouts or blemishes</label>
+        <label><input type="checkbox" value="redness"> Redness or irritation</label>
+        <label><input type="checkbox" value="spots"> Dark marks or uneven-looking tone</label>
+        <label><input type="checkbox" value="shine"> Excess shine</label>
+        <label><input type="checkbox" value="none"> No particular concern</label>
+      </div>
+      <div class="nav">
+        <button class="ghost back">← Back</button>
+        <button class="primary next">See guidance →</button>
       </div>
     </section>
-    <section class="shell">
-      <h2>منتجات العناية بالبشرة</h2>
-      <div class="card-grid">
-        <div class="product">
-          <h3>منظف CeraVe اللطيف</h3>
-          <p>ينظف البشرة بعمق دون تجفيفها.</p>
-          <p>السعر: 150 درهم</p>
-        </div>
-        <div class="product">
-          <h3>مرطب Cetaphil اليومي</h3>
-          <p>يحافظ على رطوبة البشرة طوال اليوم.</p>
-          <p>السعر: 200 درهم</p>
-        </div>
-        <div class="product">
-          <h3>واقي شمس La Roche-Posay</h3>
-          <p>حماية عالية من أشعة الشمس، غير دهني.</p>
-          <p>السعر: 180 درهم</p>
-        </div>
+
+    <!-- Step 03: Education -->
+    <section class="stage" data-step="2" hidden>
+      <div class="eyebrow">03 / EDUCATION</div>
+      <h2>Let's understand your concerns</h2>
+      <p>General skincare information based on what you selected, not a diagnosis.</p>
+      <div id="guidance" class="card-grid"></div>
+      <div class="notice">If you have painful, rapidly changing, bleeding, infected, or persistent skin symptoms, seek medical advice rather than relying on this website.</div>
+      <div class="nav">
+        <button class="ghost back">← Back</button>
+        <button class="primary next">Take the skin quiz →</button>
       </div>
     </section>
-  </main>
-  <footer>© 2026 Glow & You</footer>
+
+    <!-- Step 04: Quiz -->
+    <section class="stage" data-step="3" hidden>
+      <div class="eyebrow">04 / SKIN QUIZ</div>
+      <h2>Discover your likely skin profile</h2>
+      <form id="quiz">
+        <div class="fields">
+          <label>How does your face usually feel a few hours after cleansing?
+            <select id="feel" required>
+              <option value="">Choose one</option>
+              <option value="dry">Tight or flaky</option>
+              <option value="oily">Shiny all over</option>
+              <option value="combination">Shiny T-zone, drier cheeks</option>
+              <option value="normal">Mostly comfortable and balanced</option>
+              <option value="unsure">Not sure</option>
+            </select>
+          </label>
+          <label>Does your skin react easily to products?
+            <select id="sensitive" required>
+              <option value="">Choose one</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+              <option value="unsure">Not sure</option>
+            </select>
+          </label>
+          <label>Any ingredient allergies or products to avoid?
+            <input id="avoid" placeholder="e.g., fragrance (optional)" maxlength="120">
+          </label>
+          <label>Maximum total routine budget (DH)
+            <input id="budget" type="number" min="0" max="100000" step="10" placeholder="Optional">
+          </label>
+        </div>
+        <p class="micro">We do not collect gender. Recommendations are based on skin needs.</p>
+        <div class="nav">
+          <button type="button" class="ghost back">← Back</button>
+          <button class="primary" type="submit">Get my profile →</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Step 05: Products -->
+    <section class="stage" data-step="4" hidden>
+      <div class="eyebrow">05 / PRODUCTS</div>
+      <h2>Your skin profile & product ideas</h2>
+      <div id="profile" class="profile"></div>
+      <p class="micro">Product examples are not endorsements. Prices, stock, shipping, and local availability have not been verified; no fabricated prices are displayed.</p>
+      <div id="products" class="card-grid"></div>
+      <div class="nav">
+        <button class="ghost back">← Back</button>
+        <button class="primary next">Build my routine →</button>
+      </div>
+    </section>
+
+    <!-- Step 06: Routine -->
+    <section class="stage" data-step="5" hidden>
+      <div class="eyebrow">06 / YOUR ROUTINE</div>
+      <h2>Your morning & evening routine</h2>
+      <div id="routine" class="routine"></div>
+      <div class="actions">
+        <button class="ghost" id="save">↓ Download routine (.txt)</button>
+        <button class="ghost" id="restart">↺ Start again</button>
+      </div>
+      <div class="nav">
+        <button class="ghost back">← Back</button>
+      </div>
+    </section>
+  </section>
+</main>
+
+<footer>© 2026 Glow & You · Inclusive skincare education · Not medical diagnosis · Your photo is not uploaded.</footer>
+<script src="script.js" defer></script>
 </body>
 </html>
