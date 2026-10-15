@@ -1,6 +1,45 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Glow & You — Your Skin, Your Routine</title><style>
-:root{--violet:#7255ff;--blue:#428dff;--ink:#20243e;--muted:#66708b}*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:#f9faff}header{display:flex;align-items:center;justify-content:space-between;padding:22px max(5%,calc((100% - 1160px)/2));background:#fff9;border-bottom:1px solid #eceafa}.logo{font-weight:900;font-size:24px}.logo span{color:var(--violet)}.pill{font-size:12px;color:#5a47bc;background:#f0ecff;padding:8px 12px;border-radius:40px}main{max-width:1160px;margin:auto;padding:24px}.hero{border:1px solid #e9e6ff;border-radius:28px;background:radial-gradient(circle at 83% 30%,#d6d9ff 0,transparent 34%),linear-gradient(125deg,#fff,#f3f1ff);padding:65px 6%;display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center}.eyebrow{color:#6954cf;font-weight:800;letter-spacing:.12em;font-size:12px}.hero h1{font-size:clamp(38px,5.5vw,68px);line-height:1.06;letter-spacing:-.05em;margin:14px 0}.hero h1 em{font-style:normal;color:var(--violet)}.hero p{color:var(--muted);line-height:1.75;max-width:560px}.btn{background:linear-gradient(100deg,var(--violet),var(--blue));border:0;border-radius:13px;color:white;padding:14px 20px;font-weight:800;cursor:pointer}.art{min-height:290px;display:grid;place-items:center}.orb{width:245px;height:245px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff,#c6b7ff 45%,#6f83fa 75%,#4d47a3);box-shadow:0 0 80px #9b8dff8c, inset -18px -18px 40px #6553b866;position:relative}.orb:after{content:'✦';position:absolute;color:white;font-size:95px;top:58px;left:91px;text-shadow:0 0 24px white}.section{margin:46px 0}.section h2{font-size:29px;letter-spacing:-.04em}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.step,.panel{background:#fff;border:1px solid #e8e9f5;border-radius:20px;padding:22px;box-shadow:0 10px 25px #4c4c8c0a}.step b{display:block;color:var(--violet);font-size:22px;margin-bottom:12px}.step p,.note{color:var(--muted);line-height:1.6;font-size:14px}.panel{max-width:800px;margin:auto}label{display:block;font-weight:700;font-size:14px;margin:17px 0 7px}select,input{width:100%;border:1px solid #d9dced;padding:13px;border-radius:11px;background:white;font:inherit}.fields{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.result{margin-top:20px;background:#f3f1ff;border-radius:14px;padding:19px;line-height:1.65}.result h3{margin-top:0}footer{text-align:center;padding:30px;color:var(--muted);font-size:13px}@media(max-width:750px){.hero{grid-template-columns:1fr;padding:40px 7%}.art{min-height:210px}.orb{width:170px;height:170px}.orb:after{top:31px;left:60px;font-size:75px}.steps{grid-template-columns:1fr 1fr}.fields{grid-template-columns:1fr}}@media(max-width:460px){.steps{grid-template-columns:1fr}.hero h1{font-size:41px}}
-</style><link rel="stylesheet" href="style.css"></head><body><header><div class="logo">Glow <span>&</span> You ✦</div><span class="pill">SKIN STUDIO 2.0</span></header><main><section class="hero"><div><div class="eyebrow">PERSONALIZED SKINCARE • FOR EVERYONE</div><h1>Your skin.<br>Your <em>routine.</em></h1><p>A smarter way to care for your skin. Tell us what you need and get a simple, personalized morning and evening skincare plan.</p><button class="btn" onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})">Build my routine →</button></div><div class="art" aria-hidden="true"><div class="orb"></div></div></section><section class="section"><h2>How it works ✨</h2><div class="steps"><div class="step"><b>01 ◇</b><strong>Know your skin</strong><p>Answer a few simple questions.</p></div><div class="step"><b>02 ◇</b><strong>Share your concerns</strong><p>Choose what matters to you.</p></div><div class="step"><b>03 ◇</b><strong>Get guidance</strong><p>Receive a routine based on your answers.</p></div><div class="step"><b>04 ◇</b><strong>Build consistency</strong><p>Follow a gentle AM and PM plan.</p></div></div></section><section class="section" id="quiz"><div class="panel"><div class="eyebrow">YOUR PERSONAL SKIN STUDIO</div><h2>Let's get to know your skin</h2><p class="note">This first version uses your questionnaire answers, not AI photo diagnosis. No data is uploaded or stored by this page.</p><form id="skinForm"><div class="fields"><div><label for="type">How does your skin usually feel?</label><select id="type" required><option value="">Select one</option><option value="dry">Dry or tight</option><option value="oily">Oily or shiny</option><option value="combination">Oily in some areas, dry in others</option><option value="normal">Comfortable / balanced</option><option value="unsure">Not sure</option></select></div><div><label for="concern">Main skin concern</label><select id="concern" required><option value="">Select one</option><option value="dryness">Dryness</option><option value="breakouts">Pimples / breakouts</option><option value="spots">Uneven-looking tone / marks</option><option value="sensitivity">Redness / sensitivity</option><option value="none">Just a simple routine</option></select></div><div><label for="sensitive">Does your skin react easily?</label><select id="sensitive"><option value="yes">Yes</option><option value="no">No</option><option value="unsure">Not sure</option></select></div><div><label for="budget">Monthly product budget (DH)</label><select id="budget"><option value="low">Under 150 DH</option><option value="mid">150–350 DH</option><option value="high">Over 350 DH</option></select></div></div><button class="btn" style="margin-top:22px" type="submit">Create my routine ✦</button></form><div id="result" class="result" hidden aria-live="polite"></div></div></section></main><footer>Glow & You © 2026 · Skincare for everyone · Educational guidance, not medical diagnosis</footer><script>
-const form=document.getElementById('skinForm'),result=document.getElementById('result');function make(tag,text){const e=document.createElement(tag);e.textContent=text;return e}form.addEventListener('submit',e=>{e.preventDefault();const type=document.getElementById('type').value,concern=document.getElementById('concern').value,sensitive=document.getElementById('sensitive').value,budget=document.getElementById('budget').value;if(!type||!concern)return;result.replaceChildren();result.append(make('h3','Your starter skincare routine ✨'));const p=make('p','Based on your answers, start simple and introduce new products one at a time.');result.append(p);result.append(make('h4','☀️ Morning'));const am=make('p','1. Gentle cleanser (or rinse with water if preferred).\n2. Fragrance-free moisturizer.\n3. Broad-spectrum SPF 30+ sunscreen.');am.style.whiteSpace='pre-line';result.append(am);result.append(make('h4','🌙 Evening'));const pm=make('p','1. Gentle cleanser.\n2. Fragrance-free moisturizer.');pm.style.whiteSpace='pre-line';result.append(pm);let tip='';if(type==='dry'||concern==='dryness')tip='Look for a richer moisturizer with glycerin or ceramides.';else if(type==='oily'||concern==='breakouts')tip='Choose a lightweight non-comedogenic moisturizer. For persistent acne, consult a qualified clinician.';else if(concern==='spots')tip='Daily sunscreen is especially important when trying to reduce the appearance of dark marks.';else if(concern==='sensitivity'||sensitive==='yes')tip='Prioritize fragrance-free products and avoid introducing several actives at once.';else tip='Consistency and sun protection are great starting points.';result.append(make('p','💡 '+tip));if(sensitive==='yes')result.append(make('p','Because you reported sensitivity, patch-test new products and stop if irritation occurs.'));result.append(make('p','💰 Selected budget: '+({low:'Under 150 DH',mid:'150–350 DH',high:'Over 350 DH'}[budget])+'. Named products and verified local prices will be added in a later version.'));result.append(make('p','⚠️ A questionnaire cannot diagnose a skin condition. For severe, painful, changing, or persistent symptoms, consult a dermatologist.'));result.hidden=false;result.scrollIntoView({behavior:'smooth',block:'nearest'})});
-</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glow & You — Skin Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#home">✦ Glow <span>&</span> You</a>
+    <div class="tag">SKIN STUDIO 2.0</div>
+  </header>
+  <main id="home">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">YOUR PERSONAL SKINCARE STUDIO</div>
+        <h1>Meet your skin.<br><em>Find your glow.</em></h1>
+        <p>A thoughtful skincare journey, made for everyone. Explore products and routines.</p>
+      </div>
+    </section>
+    <section class="shell">
+      <h2>منتجات العناية بالبشرة</h2>
+      <div class="card-grid">
+        <div class="product">
+          <h3>منظف CeraVe اللطيف</h3>
+          <p>ينظف البشرة بعمق دون تجفيفها.</p>
+          <p>السعر: 150 درهم</p>
+        </div>
+        <div class="product">
+          <h3>مرطب Cetaphil اليومي</h3>
+          <p>يحافظ على رطوبة البشرة طوال اليوم.</p>
+          <p>السعر: 200 درهم</p>
+        </div>
+        <div class="product">
+          <h3>واقي شمس La Roche-Posay</h3>
+          <p>حماية عالية من أشعة الشمس، غير دهني.</p>
+          <p>السعر: 180 درهم</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>© 2026 Glow & You</footer>
+</body>
+</html>
